@@ -6,6 +6,7 @@ window.addEventListener("load", function() {
 
 document.querySelector("#play").addEventListener("click", function() {
 	video.play();
+	document.querySelector("#volume").innerHTML = video.volume * 100 + "%";
 	console.log("Play Video");
 });
 
@@ -54,20 +55,13 @@ document.querySelector("#mute").addEventListener("click", function() {
 document.querySelector("#volumeSlider").addEventListener("change", function(e) {
 	video.volume = e.currentTarget.value / 100;
 	console.log("Current Volume: " + video.volume);
-	document.querySelector("#volume").innerHTML = video.volume * 100;
+	document.querySelector("#volume").innerHTML = video.volume * 100 + "%";
 });
 
 document.querySelector("#old").addEventListener("click", function(){
-	document.getElementById("myVideo").style.borderRadius = '20px';
-	document.getElementById("myVideo").style.filter = 'grayscale(100%)';
-	document.getElementById("myVideo").style.width = '75%';
-	document.getElementById("myVideo").style.border = '5px double grey';
+	video.classList.add("oldTime");
 });
 
 document.querySelector("#original").addEventListener("click", function(){
-	document.getElementById("myVideo").style.borderRadius = '0px';
-	document.getElementById("myVideo").style.display = 'block';
-	document.getElementById("myVideo").style.margin = '0 auto';
-	document.getElementById("myVideo").style.width = '90%';
-	document.getElementById("myVideo").style.border = '2px solid black';
+	video.classList.remove("oldTime");
 });
